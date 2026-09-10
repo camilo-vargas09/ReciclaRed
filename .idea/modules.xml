@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ReciclaRed.iml" filepath="$PROJECT_DIR$/.idea/ReciclaRed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReciclaRed/ReciclaRed.iml" filepath="$PROJECT_DIR$/ReciclaRed/ReciclaRed.iml" />
     </modules>
   </component>
 </project>
