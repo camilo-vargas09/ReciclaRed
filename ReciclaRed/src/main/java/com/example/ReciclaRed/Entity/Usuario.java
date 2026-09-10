@@ -1,5 +1,6 @@
 package com.example.ReciclaRed.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -35,6 +36,7 @@ public class Usuario extends BaseEntity {
         private String telefono;
 
         @NotBlank(message = "La contraseña es obligatoria")
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         @Column(nullable = false)
         private String password;
 
