@@ -30,6 +30,10 @@ public class Usuario extends BaseEntity {
         @Column(name = "rol" , nullable = false)
         private String rol;
 
+        @NotBlank(message = "El barrio es obligatorio")
+        @Column(name = "barrio" , nullable = false)
+        private String barrio;
+
         @NotBlank(message = "El telefono es obligatorio")
         @Size(min = 10, max = 10)
         @Column(name = "telefono" , nullable = false)
@@ -38,7 +42,7 @@ public class Usuario extends BaseEntity {
         @NotBlank(message = "La contraseña es obligatoria")
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         @Column(nullable = false)
-        private String password;
+        private String contrasena;
 
         @NotBlank(message = "El correo no puede estar en blanco")
         @Email
