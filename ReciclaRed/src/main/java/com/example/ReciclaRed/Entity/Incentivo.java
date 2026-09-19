@@ -30,7 +30,7 @@ public class Incentivo {
     private String estado;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario", nullable = false)
     @NotNull(message = "El usuario es obligatorio")
     private Usuario usuario;
 }
