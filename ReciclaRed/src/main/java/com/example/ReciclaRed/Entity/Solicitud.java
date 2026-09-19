@@ -27,7 +27,7 @@ public class Solicitud extends BaseEntity {
 
     @NotNull(message = "El ciudadano es obligatorio")
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_ciudadano", nullable = false)
+    @JoinColumn(name = "id_ciudadano", referencedColumnName = "id_usuario", nullable = false)
     private Usuario ciudadano;
 
     @NotBlank(message = "La dirección es obligatoria")

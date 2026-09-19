@@ -1,4 +1,4 @@
-package com.example.ReciclaRed.DTO;
+package com.example.ReciclaRed.RequestDTO;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.FutureOrPresent;
@@ -31,16 +31,16 @@ public class SolicitudRequestDTO {
     private List<DetalleSolicitudDTO> detalles;
 }
 
-// Clase con acceso de paquete (package-private).
-@Data
-class DetalleSolicitudDTO {
-    @NotNull(message = "El ID del material es obligatorio")
-    private Long materialId;
+    // Clase con acceso de paquete (package-private).
+    @Data
+    class DetalleSolicitudDTO {
+        @NotNull(message = "El ID del material es obligatorio")
+        private Long materialId;
 
-    @NotNull(message = "La cantidad estimada es obligatoria")
-    private Double cantidadEstimada;
+        @NotNull(message = "La cantidad estimada es obligatoria")
+        private Double cantidadEstimada;
 
-    public Long getIdMaterial() {
+        public Long getIdMaterial() {
+        }
     }
-}
 

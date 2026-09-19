@@ -39,7 +39,7 @@ public class Visita {
     private Ruta ruta;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "solicitud_id", referencedColumnName = "id", nullable = false, unique = true)
+    @JoinColumn(name = "solicitud_id", referencedColumnName = "id_solicitud", nullable = false, unique = true)
     @NotNull(message = "La solicitud es obligatoria")
     private Solicitud solicitud;
 

@@ -24,13 +24,13 @@ public class DetalleSolicitud extends BaseEntity {
 
     @NotNull(message = "La solicitud es obligatoria")
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_solicitud", nullable = false)
+    @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud", nullable = false)
     private Solicitud solicitud;
 
 
     @NotNull(message = "El material es obligatorio")
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_material", nullable = false)
+    @JoinColumn(name = "id_material", referencedColumnName = "id_material", nullable = false)
     private Material material;
 
     @NotNull(message = "La cantidad estimada es obligatoria")
