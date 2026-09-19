@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface DetalleSolicitudRepository extends JpaRepository<DetalleSolicitud, Long> {
 
-    // Buscar Materiales específicos en una solicitud
     List<DetalleSolicitud> findBySolicitudId(Long solicitudId);
 }

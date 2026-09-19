@@ -32,8 +32,8 @@ public class Ruta {
     private String estado;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "recolector_id", nullable = false)
     @NotNull(message = "El recolector es obligatorio")
+    @JoinColumn(name = "recolector_id", referencedColumnName = "id_usuario", nullable = false)
     private Usuario recolector;
 
     @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL, orphanRemoval = true)

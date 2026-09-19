@@ -1,4 +1,4 @@
-package com.example.ReciclaRed.DTO;
+package com.example.ReciclaRed.RequestDTO;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.example.ReciclaRed.DTO;
+package com.example.ReciclaRed.RequestDTO;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

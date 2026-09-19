@@ -31,7 +31,7 @@ public class Pesaje {
     private Visita visita;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "material_id", nullable = false)
     @NotNull(message = "El material es obligatorio")
+    @JoinColumn(name = "material_id", referencedColumnName = "id_material", nullable = false)
     private Material material;
 }

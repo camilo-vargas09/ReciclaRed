@@ -36,6 +36,6 @@ public class Material extends BaseEntity {
 
     @NotNull(message = "El valor en puntos es obligatorio")
     @Positive(message = "El valor en puntos debe ser mayor a cero")
-    @Column(name = "valor punto" , nullable = false)
+    @Column(name = "valor_punto" , nullable = false)
     private Double valorPunto;
 }
