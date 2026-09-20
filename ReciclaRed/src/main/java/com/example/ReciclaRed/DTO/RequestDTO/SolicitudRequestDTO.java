@@ -1,4 +1,4 @@
-package com.example.ReciclaRed.RequestDTO;
+package com.example.ReciclaRed.DTO.RequestDTO;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.FutureOrPresent;
@@ -28,19 +28,6 @@ public class SolicitudRequestDTO {
 
     @NotEmpty(message = "Debe incluir al menos un material")
     @Valid // Activa la validación en cascada para los detalles
-    private List<DetalleSolicitudDTO> detalles;
+    private List<DetalleRequestDTO> detalles;
 }
-
-    // Clase con acceso de paquete (package-private).
-    @Data
-    class DetalleSolicitudDTO {
-        @NotNull(message = "El ID del material es obligatorio")
-        private Long materialId;
-
-        @NotNull(message = "La cantidad estimada es obligatoria")
-        private Double cantidadEstimada;
-
-        public Long getIdMaterial() {
-        }
-    }
 

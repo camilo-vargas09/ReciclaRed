@@ -1,4 +1,4 @@
-package com.example.ReciclaRed.ResponseDTO;
+package com.example.ReciclaRed.DTO.ResponseDTO;
 
 import lombok.Getter;
 import lombok.Setter;

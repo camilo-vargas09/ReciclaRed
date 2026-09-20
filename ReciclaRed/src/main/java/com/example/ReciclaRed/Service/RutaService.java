@@ -1,7 +1,7 @@
 package com.example.ReciclaRed.Service;
 
-import com.example.ReciclaRed.RequestDTO.RutaRequestDTO;
-import com.example.ReciclaRed.ResponseDTO.RutaResponseDTO;
+import com.example.ReciclaRed.DTO.RequestDTO.RutaRequestDTO;
+import com.example.ReciclaRed.DTO.ResponseDTO.RutaResponseDTO;
 import java.util.List;
 import java.util.Optional;
 
