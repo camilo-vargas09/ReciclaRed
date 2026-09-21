@@ -32,41 +32,26 @@ public class RutaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // RF05: El Coordinador crea la ruta, asigna el recolector y las solicitudes[cite: 1]
+    // RF05: El Coordinador crea la ruta, asigna el recolector y las solicitudes
     @PostMapping("/crear")
     public ResponseEntity<RutaResponseDTO> guardar(@Valid @RequestBody RutaRequestDTO dto) {
-        try {
-            RutaResponseDTO nuevaRuta = rutaService.guardarRuta(dto);
-            return ResponseEntity.status(HttpStatus.CREATED).body(nuevaRuta);
-        } catch (IllegalArgumentException | IllegalStateException e) {
-            // Captura violaciones a reglas de negocio (ej. RN07: exceder 15 visitas)[cite: 2]
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        } catch (RuntimeException e) {
-            // Captura si el recolector o alguna solicitud no existen en la BD
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        // La validación y captura de errores se delega al GlobalExceptionHandler
+        RutaResponseDTO nuevaRuta = rutaService.guardarRuta(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevaRuta);
     }
 
     // Actualizar una ruta existente
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<RutaResponseDTO> actualizar(@PathVariable Long id, @Valid @RequestBody RutaRequestDTO dto) {
-        try {
-            RutaResponseDTO rutaActualizada = rutaService.actualizarRuta(id, dto);
-            return ResponseEntity.ok(rutaActualizada);
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        RutaResponseDTO rutaActualizada = rutaService.actualizarRuta(id, dto);
+        return ResponseEntity.ok(rutaActualizada);
     }
 
     // Eliminar una ruta del sistema
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        try {
-            rutaService.eliminarRuta(id);
-            // Retorna 204 No Content indicando que se eliminó con éxito
-            return ResponseEntity.noContent().build();
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        rutaService.eliminarRuta(id);
+        // Retorna 204 No Content indicando que se eliminó con éxito
+        return ResponseEntity.noContent().build();
     }
 }
