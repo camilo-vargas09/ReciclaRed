@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,18 @@ import java.util.stream.Collectors;
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
+
+    // GET: Consultar perfil del usuario autenticado (Endpoint Transversal)
+    @GetMapping("/me")
+    public ResponseEntity<UsuarioResponseDTO> obtenerPerfilAutenticado(Authentication authentication) {
+        // Extraemos el correo del usuario directamente del Token JWT en el contexto de seguridad
+        String correo = authentication.getName();
+
+        return usuarioService.buscarPorCorreo(correo)
+                .map(this::mapearAResponse)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
 
     // POST: Crear un nuevo usuario (Ciudadano, Recolector, Coordinador, etc.)
     @PostMapping("/crear")
@@ -39,7 +52,7 @@ public class UsuarioController {
         // 3. Convertir la Entidad guardada a un DTO de salida (Ocultando la contraseña)
         UsuarioResponseDTO responseDTO = mapearAResponse(usuarioGuardado);
 
-        // 4. Retornar HTTP 201 Created[cite: 10]
+        // 4. Retornar HTTP 201 Created
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 

@@ -8,4 +8,5 @@ public interface UsuarioService {
     Usuario crearUsuario(Usuario usuario);
     List<Usuario> obtenerTodos();
     Optional<Usuario> obtenerPorId(Long id);
+    Optional<Usuario> buscarPorCorreo(String correo);
 }
