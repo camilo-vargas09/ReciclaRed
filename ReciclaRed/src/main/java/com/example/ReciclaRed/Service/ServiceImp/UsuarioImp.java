@@ -36,4 +36,10 @@ public class UsuarioImp implements UsuarioService {
     public Optional<Usuario> obtenerPorId(Long id) {
         return usuarioRepository.findById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<Usuario> buscarPorCorreo(String correo) {
+        return usuarioRepository.findByCorreo(correo);
+    }
 }
